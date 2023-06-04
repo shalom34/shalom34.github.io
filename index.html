@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Presentation</title>
+</head>
+<body>
+		<p>Add any programming language that you know</p>
+	</center>
+<div class="container">
+
+	<form method="POST" name="sample">
+		<input type="text" name="lang" required id="text">
+		<input type="button" name="add" value="add" onclick="addLang();" class="btnAdd">
+		<div class="tables">
+			<div class="table1">
+				<h2>Programming languages</h2><hr>
+				<table id="tbl">
+			
+				<tbody>
+			
+				</tbody>
+				</table>
+			</div>
+			<div class="table2">
+				<h2>Selected programming languages</h2><hr>
+				<table id="tbl2">
+			
+				<tbody>
+			
+				</tbody>
+				</table>
+			</div>
+			
+		</div>
+		
+	</form>
+	<script type="text/javascript">
+	function addLang(){
+		var langText=document.sample.lang.value;
+
+		var tr=document.createElement('tr');
+		var td0=tr.appendChild(document.createElement('td'));
+		var td1=tr.appendChild(document.createElement('td'));
+		var td2=tr.appendChild(document.createElement('td'));
+		var td3=tr.appendChild(document.createElement('td'));
+
+		td0.innerHTML='<input type="checkbox" name="select" onclick="selectLang(this);" class="btnSelect">';
+		td1.innerHTML=langText;
+		td2.innerHTML='<input type="button" name="edit" value="edit" onclick="editLang(this);" class="btnEdit">';
+		td3.innerHTML='<input type="button" name="delete" value="delete" onclick="delLang(this);" class="btnDelete">';
+
+		td1.style.width="100%";
+		document.getElementById("tbl").appendChild(tr);
+	}
+
+	function editLang(lang){
+		var langText=document.sample.lang.value;
+		var l=lang.parentNode.parentNode;
+		var tr=document.createElement('tr');
+		var td0=tr.appendChild(document.createElement('td'));
+		var td1=tr.appendChild(document.createElement('td'));
+		var td2=tr.appendChild(document.createElement('td'));
+		var td3=tr.appendChild(document.createElement('td'));
+
+		td0.innerHTML='<input type="checkbox" name="select" onclick="selectLang(this);" class="btnSelect">';
+		td1.innerHTML='<input type="text" name="lang1" required>';
+		td2.innerHTML='<input type="button" name="edit" value="save" onclick="saveLang(this);" class="btnSave">';
+		td3.innerHTML='<input type="button" name="delete" value="delete" onclick="delLang(this);" class="btnDelete">';
+		document.getElementById("tbl").replaceChild(tr,l);
+	}
+	
+	function saveLang(lang){
+		var langText=document.sample.lang1.value;
+		var l=lang.parentNode.parentNode;
+		var tr=document.createElement('tr');
+		var td0=tr.appendChild(document.createElement('td'));
+		var td1=tr.appendChild(document.createElement('td'));
+		var td2=tr.appendChild(document.createElement('td'));
+		var td3=tr.appendChild(document.createElement('td'));
+
+		td0.innerHTML='<input type="checkbox" name="select" onclick="selectLang(this);" class="btnSelect">';
+		td1.innerHTML=langText;
+		td2.innerHTML='<input type="button" name="edit" value="edit" onclick="editLang(this);" class="btnEdit">';
+		td3.innerHTML='<input type="button" name="delete" value="delete" onclick="delLang(this);" class="btnDelete">';
+		td1.style.width="100%";
+		document.getElementById("tbl").replaceChild(tr,l);
+	}
+	function selectLang(lang){
+		
+		var tbl=document.getElementById("tbl");
+		var tbl2=document.getElementById("tbl2");
+		checkboxes=document.getElementsByName("select");
+		for(var i=0;i<checkboxes.length;i++){
+			if (checkboxes[i].checked) {
+
+				var newRow=tbl2.insertRow(tbl2.length);
+				cell1=newRow.insertCell(0);
+				cell2=newRow.insertCell(1);
+
+				cell1.innerHTML='<input type="checkbox" name="remove" onclick="removeLang(this);" class="btnSelect" checked>';
+				cell2.innerHTML=tbl.rows[i].cells[1].innerHTML;
+				cell2.style.backgroundColor="green";
+				cell2.style.color="white";
+				cell2.style.borderRadius="1vw";
+				cell2.style.fontSize="2.5vw";
+				cell2.style.padding="0.6vw 2vw 0.6vw 2vw";
+
+			}
+		}
+		var l=lang.parentNode.parentNode;
+		l.parentNode.removeChild(l);	
+		}
+
+		function removeLang(lang){
+		
+		var tbl=document.getElementById("tbl");
+		var tbl2=document.getElementById("tbl2");
+		checkboxes=document.getElementsByName("remove");
+		for(var i=0;i<checkboxes.length;i++){
+			if (!checkboxes[i].checked) {
+
+				var tr=document.createElement('tr');
+		var td0=tr.appendChild(document.createElement('td'));
+		var td1=tr.appendChild(document.createElement('td'));
+		var td2=tr.appendChild(document.createElement('td'));
+		var td3=tr.appendChild(document.createElement('td'));
+
+		td0.innerHTML='<input type="checkbox" name="select" onclick="selectLang(this);" class="btnSelect">';
+		td1.innerHTML=tbl2.rows[i].cells[1].innerHTML;
+		td2.innerHTML='<input type="button" name="edit" value="edit" onclick="editLang(this);" class="btnEdit">';
+		td3.innerHTML='<input type="button" name="delete" value="delete" onclick="delLang(this);" class="btnDelete">';
+		document.getElementById("tbl").appendChild(tr);
+				
+				
+			}
+		}
+		var l=lang.parentNode.parentNode;
+		l.parentNode.removeChild(l);	
+		}
+	
+
+	function delLang(lang){
+		var l=lang.parentNode.parentNode;
+		l.parentNode.removeChild(l);
+	}
+	
+	
+</script>
+
+</div>
+</body>
+
+</html>

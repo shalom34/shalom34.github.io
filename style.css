@@ -1,0 +1,88 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+body{
+	background: whitesmoke;
+	padding: 1vw;
+}
+h2{
+	margin-top: 2vw;
+	font-size: 3vw;
+	font-weight: normal;
+	margin-bottom: 1vw;
+}
+hr{
+	width: 80%;
+}
+p{
+	font-size: 4vw;
+}
+#text{
+	width: 50%;
+	padding: 0.5vw;
+	border: 0.2vw solid #ccc;
+	border-radius: 1vw;
+	box-sizing: border-box;
+	resize: vertical;
+	outline: none;
+	font-size: 2.5vw;
+
+}
+.btnAdd{
+	background: green;
+	font-size: 2.5vw;
+	border: none;
+	border-radius: 1vw;
+	padding: 0.6vw 2vw 0.6vw 2vw;
+	color: white;
+}
+.tables .btnEdit{
+background: orange;
+	font-size: 2.5vw;
+	border: none;
+	border-radius: 1vw;
+	padding: 0.6vw 2vw 0.6vw 2vw;
+	color: white;
+}
+.tables .btnDelete{
+background: red;
+	font-size: 2.5vw;
+	border: none;
+	border-radius: 1vw;
+	padding: 0.6vw 2vw 0.6vw 2vw;
+	color: white;
+}
+.tables .btnSave{
+background: green;
+	font-size: 2.5vw;
+	border: none;
+	border-radius: 1vw;
+	padding: 0.6vw 2vw 0.6vw 2vw;
+	color: white;
+}
+.container{
+	align-items: center;
+	padding-top: 4vw;
+
+}
+.tables{
+	width: 100%;
+	display: flex;
+}
+.tables table{
+	font-size: 2.5vw;
+}
+.tables .table1{
+	width: 100%;
+	
+}
+.tables .table1 input[type="text"]{
+	width: 100%;
+	outline: none;
+	
+}
+.tables .table2{
+	width: 100%;
+}
