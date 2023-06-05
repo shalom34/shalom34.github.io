@@ -20,7 +20,8 @@ p{
 	font-size: 4vw;
 }
 #text{
-	width: 50%;
+	width: 80%;
+	height: 6vw;
 	padding: 0.5vw;
 	border: 0.2vw solid #ccc;
 	border-radius: 1vw;
@@ -32,6 +33,7 @@ p{
 }
 .btnAdd{
 	background: green;
+	height: 6vw;
 	font-size: 2.5vw;
 	border: none;
 	border-radius: 1vw;
