@@ -12,7 +12,7 @@
 <div class="container">
 
 	<form method="POST" name="sample">
-		<input type="text" name="lang" required id="text">
+		<input type="text" name="lang" required id="text" autofocus>
 		<input type="button" name="add" value="add" onclick="addLang();" class="btnAdd">
 		<div class="tables">
 			<div class="table1">
@@ -64,10 +64,18 @@
 		var td1=tr.appendChild(document.createElement('td'));
 		var td2=tr.appendChild(document.createElement('td'));
 		var td3=tr.appendChild(document.createElement('td'));
+		 
+		 var table=document.getElementById("tbl");
+		 for(var i=0;i<table.rows.length;i++){
+		 	table.rows[i].onclick=function(){
+		 		document.getElementById("field").value=this.cells[1].innerHTML;
+		 	}
+		 }
 
 		td0.innerHTML='<input type="checkbox" name="select" onclick="selectLang(this);" class="btnSelect">';
-		td1.innerHTML='<input type="text" name="lang1" required>';
+		td1.innerHTML='<input type="text" name="lang1" id="field" required autofocus>';
 		td2.innerHTML='<input type="button" name="edit" value="save" onclick="saveLang(this);" class="btnSave">';
+		
 		td3.innerHTML='<input type="button" name="delete" value="delete" onclick="delLang(this);" class="btnDelete">';
 		document.getElementById("tbl").replaceChild(tr,l);
 	}
